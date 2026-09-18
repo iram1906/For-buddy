@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>for buddy ♡</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0d0d12;
+    color: #f5eee7;
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 22px;
+    position: relative;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+.small {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: clamp(45px, 12vw, 80px);
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(30px, 8vw, 52px);
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #ddd4cc;
+}
+
+button {
+    border: 1px solid #756b63;
+    background: transparent;
+    color: #f5eee7;
+    padding: 13px 24px;
+    margin-top: 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #f5eee7;
+    color: #0d0d12;
+}
+
+.heart {
+    font-size: 25px;
+    opacity: 0.7;
+    margin: 25px 0;
+}
+
+.card {
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    padding: 25px;
+    margin: 18px 0;
+    text-align: left;
+    backdrop-filter: blur(8px);
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+}
+
+.date {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    margin-bottom: 35px;
+}
+
+.timeline {
+    border-left: 1px solid #625b55;
+    text-align: left;
+    padding-left: 25px;
+    margin: 30px auto;
+    max-width: 520px;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "♡";
+    position: absolute;
+    left: -39px;
+    top: 0;
+    color: #d7c6b9;
+}
+
+.timeline-item h3 {
+    font-weight: normal;
+    margin-bottom: 7px;
+}
+
+.reveal {
+    display: none;
+    margin-top: 20px;
+}
+
+.reveal.show {
+    display: block;
+    animation: appear 0.6s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.choice {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.choice.correct {
+    border-color: #aaa;
+}
+
+.big-date {
+    font-size: clamp(25px, 7vw, 45px);
+    letter-spacing: 5px;
+    margin: 25px 0;
+}
+
+.final {
+    font-size: 19px;
+    line-height: 2;
+    color: #eee5dd;
+}
+
+.footer {
+    margin-top: 35px;
+    font-size: 12px;
+    opacity: 0.4;
+    font-family: Arial, sans-serif;
+}
+
+.star {
+    position: fixed;
+    font-size: 10px;
+    opacity: 0.25;
+    animation: float 5s infinite ease-in-out;
+}
+
+.s1 { top: 12%; left: 12%; }
+.s2 { top: 22%; right: 15%; animation-delay: 1s; }
+.s3 { bottom: 18%; left: 20%; animation-delay: 2s; }
+.s4 { bottom: 12%; right: 12%; animation-delay: 3s; }
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="star s1">✦</div>
+<div class="star s2">✧</div>
+<div class="star s3">✦</div>
+<div class="star s4">✧</div>
+
+
+<!-- SCREEN 1 -->
+
+<section class="screen active" id="screen1">
+<div class="container">
+
+    <div class="small">a tiny archive</div>
+
+    <h1>hey, buddy.</h1>
+
+    <div class="heart">♡</div>
+
+    <p>
+        I could've just wished you<br>
+        a happy three months...
+        <br><br>
+        but obviously I had to make things unnecessarily complicated. 😭
+    </p>
+
+    <button onclick="goTo(2)">open it →</button>
+
+    <div class="footer">19.06.26 → 19.09.26</div>
+
+</div>
+</section>
+
+
+<!-- SCREEN 2 -->
+
+<section class="screen" id="screen2">
+<div class="container">
+
+    <div class="small">chapter one</div>
+
+    <h2>before we knew</h2>
+
+    <p>
+        Before there was an anniversary,
+        before there was an "us",
+        there were just two people
+        who somehow kept talking.
+    </p>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>The beginning</h3>
+            <p>
+                Somewhere between random conversations
+                and getting to know each other,
+                you slowly became someone I looked forward
+                to hearing from.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>The funny part</h3>
+            <p>
+                You probably had absolutely no idea
+                how much I overanalysed some of your texts. 💀
+                Meanwhile, I was conducting a full investigation.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Two years later...</h3>
+            <p>
+                Somehow those ordinary conversations
+                became memories I wouldn't trade.
+            </p>
+        </div>
+
+    </div>
+
+    <button onclick="goTo(3)">continue →</button>
+
+</div>
+</section>
+
+
+<!-- SCREEN 3 -->
+
+<section class="screen" id="screen3">
+<div class="container">
+
+    <div class="small">chapter two</div>
+
+    <h2>now.</h2>
+
+    <div class="big-date">
+        19.06 → 19.09
+    </div>
+
+    <p>
+        Three months of officially being us.
+        <br>
+        And somehow, it already contains
+        so many tiny moments.
+    </p>
+
+    <div class="card">
+        <h3>♡ the comfort</h3>
+        <p>
+            The kind of comfort that comes from
+            knowing there's someone you can randomly
+            talk to about absolutely nothing.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>♡ the chaos</h3>
+        <p>
+            Because obviously our story needed
+            its fair share of kalesh too. 😭
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>♡ the little things</h3>
+        <p>
+            Sometimes it's not the huge moments.
+            It's the tiny things that quietly become
+            part of your everyday life.
+        </p>
+    </div>
+
+    <button onclick="goTo(4)">there's more →</button>
+
+</div>
+</section>
+
+
+<!-- SCREEN 4 -->
+
+<section class="screen" id="screen4">
+<div class="container">
+
+    <div class="small">a very serious investigation 👀</div>
+
+    <h2>how well do you remember us?</h2>
+
+    <p>
+        Don't overthink it.
+        And don't cheat. 😭
+    </p>
+
+    <div class="card">
+
+        <h3>Question 01</h3>
+
+        <p style="margin-bottom:15px;">
+            Which word probably describes our conversations best?
+        </p>
+
+        <button class="choice" onclick="wrong()">A. Completely normal</button>
+        <button class="choice" onclick="right()">B. Chaotic 💀</button>
+        <button class="choice" onclick="wrong()">C. Very organised</button>
+
+        <div id="answer" class="reveal">
+            <p>
+                Obviously B. 😭<br><br>
+                If anyone ever reads our conversations,
+                I hope they have context.
+            </p>
+        </div>
+
+    </div>
+
+    <button onclick="goTo(5)">next chapter →</button>
+
+</div>
+</section>
+
+
+<!-- SCREEN 5 -->
+
+<section class="screen" id="screen5">
+<div class="container">
+
+    <div class="small">chapter three</div>
+
+    <h2>next.</h2>
+
+    <p>
+        Not predictions.
+        Not promises.
+        Just a few things I hope we get
+        to add to our collection of memories.
+    </p>
+
+    <div class="card">
+        <h3>☐ another ridiculous memory</h3>
+        <p>Because apparently we don't have enough.</p>
+    </div>
+
+    <div class="card">
+        <h3>☐ another "remember when..."</h3>
+        <p>Preferably one that makes absolutely no sense to anyone else.</p>
+    </div>
+
+    <div class="card">
+        <h3>☐ more conversations</h3>
+        <p>The unnecessarily long ones are welcome.</p>
+    </div>
+
+    <div class="card">
+        <h3>☐ more kalesh 😭</h3>
+        <p>Okay maybe slightly less of this one.</p>
+    </div>
+
+    <button onclick="goTo(6)">one last thing →</button>
+
+</div>
+</section>
+
+
+<!-- SCREEN 6 -->
+
+<section class="screen" id="screen6">
+<div class="container">
+
+    <div class="small">final page</div>
+
+    <div class="heart">♡</div>
+
+    <h2>three months.</h2>
+
+    <p class="final">
+
+        I don't think three months sounds like a very
+        long time when you say it out loud.
+
+        <br><br>
+
+        But when I think about everything packed inside
+        those three months — the conversations,
+        the random moments, the jokes, the little things,
+        and all the memories that somehow became ours —
+        it doesn't feel small at all.
+
+        <br><br>
+
+        I'm glad it was you I got to experience
+        these three months with.
+
+        <br><br>
+
+        And maybe someday we'll look back at this
+        little website and laugh at how seriously
+        we took everything. 😭
+
+        <br><br>
+
+        But for now...
+
+        <br><br>
+
+        <strong>happy 3 months, Buddy. 🤍</strong>
+
+    </p>
+
+    <div class="heart">✦ ♡ ✦</div>
+
+    <div class="footer">
+        end of archive.<br>
+        19.09.26
+    </div>
+
+</div>
+</section>
+
+
+<script>
+
+function goTo(number) {
+
+    document.querySelectorAll(".screen").forEach(function(screen) {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById("screen" + number).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function right() {
+    document.getElementById("answer").classList.add("show");
+}
+
+function wrong() {
+    alert("BRO 😭 try again.");
+}
+
+</script>
+
+</body>
+  </html>
